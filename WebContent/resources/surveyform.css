@@ -1,0 +1,142 @@
+body{
+    background-color: #212121;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+body .manyCheckbox.ui-chkbox {
+        width: auto;
+    }
+
+body .manyCheckbox .ui-chkbox-box {
+       display: inline-block;
+        vertical-align: middle;
+        margin-right: 4px;
+    }
+
+body .manyCheckbox .ui-chkbox-label {
+        vertical-align: middle;
+        margin-top: 0;
+    }
+
+
+html {
+    height: 100%
+}
+
+h1, h2, h3, h4 {
+    color: deepskyblue;
+    border-style: solid;
+    border-width: 5px;
+    border-color: deepskyblue;
+    padding: 7px;
+}
+
+
+/*Styling the buttons*/
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: #555;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box; }
+
+/*Styling input and text areas*/
+textarea {
+    min-height: 65px;
+    padding-top: 6px;
+    padding-bottom: 6px; }
+
+
+/*Styling different input types*/
+input[type="email"],
+input[type="number"],
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box; }
+
+/*Styling the buttons*/
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+    color: deepskyblue;
+    background-color: #33C3F0;
+    border-color: #33C3F0; }
+
+
+table {
+	width: 80%;
+}
+
+
+/*Styling labels*/
+label {
+	text-align: left;
+	padding: 10px;
+	font-size: 20;
+}
+
+td {
+	color: #fff;
+}
+
+.submitBtn {
+	padding: 10px 25px;
+	font-size: 20;
+	color: #354775;
+}
+
+#survey input[type="text"], #survey input[type="email"], #survey input[type="tel"],
+	#survey input[type="date"], #survey textarea, #survey select {
+	width: 95%;
+	border: 1px solid deepskyblue;
+	background: #FFF;
+	margin: 0 0 5px;
+	padding: 10px;
+}
+
+
+/*Styling tabel*/
+table {
+	padding:10px;
+	border-style: solid;
+	border-color: deepskyblue;
+	border-width: 5px;
+	border-radius: 5px;
+	font-family: "Raleway", sans-serif
+}
+
+#survey button[type="submit"], #survey button[type="reset"] {
+	cursor: pointer;
+	width: 30%;
+	border: none;
+	background: deepskyblue;
+	color: #FFF;
+	margin: 10px 0 5px;
+	padding: 10px;
+	font-size: 15px;
+}
