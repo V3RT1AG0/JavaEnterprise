@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">HESOYAM123</property>
+        <!-- <property name="hibernate.connection.url">jdbc:mysql://&lt;gmudb1.crnmlxnnjfrz.us-east-1.rds.amazonaws.com&gt;&lt;:3306&gt;/&lt;swehw3_db&gt;</property> -->
+        <property name="hibernate.connection.url">jdbc:mysql://db1.cebbin2ztj8v.us-east-2.rds.amazonaws.com:3306/db1</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- Enables logging of all the generated SQL statements to the console -->
+        <property name="show_sql">true</property>
+         <mapping package="swehw3"/>
+        <mapping class="swehw3" />
+    </session-factory>
+</hibernate-configuration>

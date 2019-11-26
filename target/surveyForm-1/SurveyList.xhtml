@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding = 'UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>List of Surveys</title>
+</h:head>
+<h:body>
+	<legend>List of Surveys</legend>
+	<table border="1" style="">
+		<thead>
+			<tr>
+				<th class="survey-header" scope="col">First Name</th>
+				<th class="survey-header" scope="col">Last Name</th>
+				<th class="survey-header" scope="col">Street Address</th>
+				<th class="survey-header" scope="col">Zip Code</th>
+				<th class="survey-header" scope="col">City</th>
+				<th class="survey-header" scope="col">State</th>
+				<th class="survey-header" scope="col">Phone Number</th>
+				<th class="survey-header" scope="col">E-Mail</th>
+				<th class="survey-header" scope="col">Date of Survey</th>
+				<th class="survey-header" scope="col">Liked About Campus</th>
+				<th class="survey-header" scope="col">Interest in University</th>
+				<th class="survey-header" scope="col">Recommend</th>
+				<th class="survey-header" scope="col">Raffle</th>
+				<th class="survey-header" scope="col">Comments</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<ui:repeat var="repeat" value="#{student.getSurveyData()}">
+				<tr>
+					<td>#{repeat.firstname}</td>
+					<td>#{repeat.lastname}</td>
+					<td>#{repeat.address}</td>
+					<td>#{repeat.zipcode}</td>
+					<td>#{repeat.city}</td>
+					<td>#{repeat.state}</td>
+					<td>#{repeat.phoneNum}</td>
+					<td>#{repeat.email}</td>
+					<td>#{repeat.date}</td>
+					<td>#{repeat.likeCampus_db}</td>
+					<td>#{repeat.interestUniversity}</td>
+					<td>#{repeat.recommend}</td>
+					<td>#{repeat.raffle}</td>
+					<td>#{repeat.comments}</td>
+				</tr>
+			</ui:repeat>
+		</tbody>
+	</table>
+	<h:outputLink value="index.xhtml">Go to Welcome Page</h:outputLink>
+</h:body>
+</html>

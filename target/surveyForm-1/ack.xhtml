@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding = 'UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"
+       	xmlns:h="http://java.sun.com/jsf/html"
+       	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+</h:head>
+<h:body style="background-color:#212121; color: #fff;">
+	<h1 style="color:#fff;"><b> #{student.firstname} #{student.lastname}, Thank you for submitting the response!!</b></h1>	 
+	
+	<br/>
+	 Mean: #{winningResult.mean}
+     <br />
+     Standard Deviation: #{winningResult.standardDeviation} 
+	<br />
+	<h:outputLink value="index.xhtml">Go to Welcome Page</h:outputLink><br/>
+	<h:outputLink value="survey.xhtml">Submit another response</h:outputLink>
+</h:body>
+</html>

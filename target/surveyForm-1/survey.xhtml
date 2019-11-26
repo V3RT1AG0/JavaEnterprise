@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+	<f:facet name="last">
+		<h:outputStylesheet name="surveyform.css" />
+	</f:facet>
+
+	<div id="header" align="center">
+		<h1>Student Survey Form</h1>
+	</div>
+
+	<div id="survey">
+		<h:form>
+			<div align="center">
+
+				<h:panelGrid columns="2" >
+				
+					<h:panelGroup>
+						<b>First Name </b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="firstname" value="#{student.firstname}"
+							required="true" requiredMessage="Please enter your first name">
+
+							<f:validateRegex pattern="[a-zA-Z]*" />
+							<f:validateLength minimum="1" maximum="15" />
+						</p:inputText>
+						<p:message for="firstname" styleClass="error" />
+					</h:panelGroup>
+
+
+					<h:panelGroup>
+						<b>Last Name </b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="lastname" value="#{student.lastname}"
+							required="true" requiredMessage="Please enter your last name">
+						</p:inputText>
+						<p:message for="lastname" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>Address </b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="address" value="#{student.address}"
+							required="true" requiredMessage="Please enter your address.">
+						</p:inputText>
+						<p:message for="address" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>ZipCode</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="zipcode" value="#{student.zipcode}"
+							required="true" requiredMessage="Enter your zip code"
+							validatorMessage="Enter a valid 5-digit zipcode">
+							<f:ajax event="keyup" render="city state" />
+							<f:validateRegex pattern="[0-9]*" />
+							<f:validateLength minimum="5" maximum="5" />
+						</p:inputText>
+						<p:message for="zipcode" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>City</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="city" value="#{student.city}" required="true"
+							requiredMessage="Enter your City">
+						</p:inputText>
+						<p:message for="city" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>State</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="state" value="#{student.state}" required="true"
+							requiredMessage="Enter your State">
+						</p:inputText>
+						<p:message for="state" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>Contact</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputMask id="phonenum" value="#{student.phoneNum}"
+							mask="(999) 999-9999" required="true"
+							requiredMessage="Enter telephone number"
+							validatorMessage="Only digits allowed" />
+						<p:watermark for="phonenum" value="(xxx)-xxx-xxxx" />
+						<p:message for="phonenum" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>E-mail</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="email" type="email" value="#{student.email}"
+							required="true" requiredMessage="Enter your email"
+							validatorMessage="Enter a valid e-mail id">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						</p:inputText>
+						<p:message for="email" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>Date of Survey</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:calendar id="date" value="#{student.date}"
+							pattern="MM/dd/yyyy" required="true"
+							requiredMessage="Enter date of survey"
+							validatorMessage="Enter Date of Survey in mm/dd/yyyy" />
+						<p:watermark for="date" value="mm-dd-yyyy" />
+						<p:message for="date" styleClass="error" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>What did you like the campus?</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:selectManyCheckbox id="like" value="#{student.likeCampus}"  layout="pageDirection">
+							<f:selectItem itemValue="student" itemLabel="Student" styleClass="manyCheckbox"/>
+							<br />
+							<f:selectItem itemValue="location" itemLabel="Location" styleClass="manyCheckbox"/>
+							<br />
+							<f:selectItem itemValue="campus" itemLabel="Campus" />
+							<br />
+							<f:selectItem itemValue="atmosphere" itemLabel="Atmosphere" />
+							<br />
+							<f:selectItem itemValue="dorm_rooms" itemLabel="Dorm Rooms" />
+							<br />
+							<f:selectItem itemValue="sports" itemLabel="Sports" />
+							<br />
+						</p:selectManyCheckbox>
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>Where did you hear about the university?</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:selectOneRadio id="interest"
+							value="#{student.interestUniversity}"  layout="pageDirection">
+							<f:selectItem itemValue="friends" itemLabel="Friends" />
+							<br />
+							<f:selectItem itemValue="television" itemLabel="Television" />
+							<br />
+							<f:selectItem itemValue="internet" itemLabel="Internet" />
+							<br />
+							<f:selectItem itemValue="others" itemLabel="Others" />
+							<br />
+						</p:selectOneRadio>
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>How likely will you recommend the university to
+							students?</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:autoComplete id="recommend" dropdown="true"
+							value="#{student.recommend}" forceSelection="true"
+							completeMethod="#{student.completeRecommendation}"
+							required="true" requiredMessage="* You must choose an option" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<b>Enter at least ten comma separated numbers ranging from 1
+							through 100 in the Raffle field!</b>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText id="raffle" value="#{student.raffle}" />
+						<p:watermark for="raffle" value="Raffle" />
+
+						<br />
+						<br />
+						<b>Comments</b>
+						<p:inputText id="comments" value="#{student.comments}" />
+					</h:panelGroup>
+
+				</h:panelGrid>
+
+				<p:commandButton value="submit" style="margin:20px"
+					action="#{student.register}" ajax="false" />
+				<p:commandButton value="Cancel" action="index?faces-redirect=true" />
+			
+			</div>
+		</h:form>
+	</div>
+
+</h:body>
+</html>
