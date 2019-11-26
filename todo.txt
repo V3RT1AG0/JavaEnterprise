@@ -1,0 +1,60 @@
+1. Set project on gcloud term
+gcloud config set project swe-645-kube
+
+2. get running services
+kubectl get svc
+
+3. Get pod details
+kubectl get pods
+
+4. Set up port forwarding to the Jenkins UI from Cloud Shell to connect to jenkins UI
+kubectl port-forward cd-jenkins-598bfb7f94-hpqd7 8085:8080
+
+5. Get cluster info, master slave IP etc
+kubectl cluster-info
+
+6. Docker hub login 
+sudo docker login --username=parnavi
+
+7. ssh to gcp instance 
+	gcloud compute ssh --project swe-645-kube --zone us-east4-a parent-instance
+
+8. create docker image
+
+ sudo docker build -t parnavi/image-saved:latest .
+
+
+9. push image to repository
+
+sudo docker push 
+
+10. update deployment
+
+kubectl set image deployment/survey-form-gcp survey-form-image-gcp=survey-form-image-gcp:67 --record=true
+
+
+11. Get deployment status
+
+kubectl rollout status deployment/survey-form-gcp
+
+12. Create deployment 
+kubectl create deployment hw3-deploy --image=parnavi/hw3-image:v1
+
+kubectl expose deployment hw-3-maven --type=LoadBalancer --name=hw-3-maven --port 8080
+
+
+jar -cvf surveyform.war *  
+
+
+withKubeConfig([credentialsId:'kube-creds-jenkins', serverUrl: 'https://35.199.47.233']) {
+						sh "kubectl config view"
+						sh "kubectl get deployments"
+					}
+
+kubernetesDeploy(kubeconfigId: 'kube-config-cred', configs:'deploymentfile.yml', enableConfigSubstitution: true)
+
+ls -lrt --block-size=MB
+
+-> Switch between different java verisons
+
+	sudo update-alternatives --config java
