@@ -42,7 +42,7 @@ pipeline {
 				sh 'gcloud container clusters get-credentials kube-cluster --zone us-east4-a'
 				sh 'kubectl config view'
 				sh "kubectl get deployments"
-				sh "kubectl set image deployment/hw-3-maven img-maven=parnavi/img-kitty:${env.BUILD_ID}"
+				sh "kubectl set image deployment/hw3-kitty img-maven=parnavi/img-kitty:${env.BUILD_ID}"
 			}
 			
 		}
