@@ -17,7 +17,7 @@ pipeline {
 	
 		 sh 'mvn clean install'
 		
-		sh 'jar -tvf target/surveyForm-1.war'
+		sh 'jar -tvf target/student-form-1.war'
 			
 		}
         }
@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				script {
 					echo "${env.BUILD_ID}"
-					img = docker.build "parnavi/img-kitty:${env.BUILD_ID}"
+					img = docker.build "parnavi/student-form-image:${env.BUILD_ID}"
 
 					withDockerRegistry(credentialsId: 'docker', url: '') {
 						echo "Creating docker image and pusing to docker hub ..."
@@ -42,7 +42,7 @@ pipeline {
 				sh 'gcloud container clusters get-credentials kube-cluster --zone us-east4-a'
 				sh 'kubectl config view'
 				sh "kubectl get deployments"
-				sh "kubectl set image deployment/pedu-kitty img-kitty=parnavi/img-kitty:${env.BUILD_ID}"
+				sh "kubectl set image deployment/peaky-deploy student-form-image=parnavi/student-form-image:${env.BUILD_ID}"
 			}
 			
 		}
